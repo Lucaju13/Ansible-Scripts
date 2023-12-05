@@ -111,3 +111,13 @@
         mv /home/debian/wordpress/installation/wordpress/* /var/www/html
       args:
         executable: /bin/bash
+    
+    - name: Installer WOrdpress
+      ansible.builtin.shell:
+        cmd: "apt install wordpress -y"
+    
+    - name: Restart services
+      ansible.builtin.shell: 
+        cmd: "sudo a2enmod rewrite && sudo systemctl restart apache2.service "
+      args:
+        executable: /bin/bash
