@@ -106,13 +106,13 @@
       args:
         executable: /bin/bash
 
-    - name: Move WordPress files to installation directory
+    - name: Move WordPress directory to installation directory
       ansible.builtin.shell: >
-        mv /home/debian/wordpress/installation/wordpress/* /var/www/html
+        cp -r /home/debian/wordpress/installation/wordpress /var/www/html/
       args:
         executable: /bin/bash
     
-    - name: Installer WOrdpress
+    - name: Installer Wordpress
       ansible.builtin.shell:
         cmd: "apt install wordpress -y"
     
